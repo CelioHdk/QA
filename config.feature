@@ -6,28 +6,33 @@ Quero configurar meu produto de acordo com meu tamanho e gosto
 Escolher a quantidade
 Para depois inserir no carrinho
 
-Cenário: Seleção cor do produto
-Dado que eu acesse o portal de autenticação da EBAC-SHOP
-Quando eu escolher as opções de cores
-Então deve-se permitir apenas 10 produtos por venda
-Dado que eu já tenha optado pela cor/cores desejada/ desejadas
-Quando eu clicar no botão “limpar” 
-Então deve-se voltar ao estado original
 
-Cenário: Seleção tamanho do produto
-Dado que eu acesse o portal de autenticação da EBAC-SHOP
-Quando eu escolher as opções de tamanho
-Então deve-se permitir apenas 10 produtos por venda
-Dado que eu já tenha optado pela tamanho/tamanhos desejado/ desejados
-Quando eu clicar no botão “limpar” 
-Então deve-se voltar ao estado original
+Esquema do Cenario: Configurar Produtos
+Dado que eu esteja na tela de configurar produtos
+Quando escolher o produto e os campos obrigatorios forem devidamente preenchidos <Cor>, <Tamanho>, <Quantidade>
+E <Quantidade> for até 10 ítens por venda
+Então é possível inserir os ítens no carrinho
 
-Cenário: Seleção quantidade do produto
-Dado que eu acesse o portal de autenticação da EBAC-SHOP
-Quando eu escolher as quantidades do produto
-Então deve-se permitir apenas 10 produtos por venda
-Dado que eu já tenha optado pela quantidade desejadajados
-Quando eu clicar no botão “limpar” 
-Então deve-se voltar ao estado original
+Exemplos:
+            | Cor            |Tamanho   | Quantidade|
+            |"Azul"          | "M"      | "2"       | 
+            |"Amarelo"       | "P"      | "5"       | 
+            |"Vermelho"      | "EG"     | "1"       | 
+            |"Verde"         | "G"      | "2"       | 
+           
+
+Cenario: Quantidade
+Dado que eu escolha a quantidade de produtos e direcione para o carrinho
+Quando a quantidade total dos produtos for superior a 10 unidades por venda
+Entao exibir a mensagem de alerta "Quantidade excedida, o total máximo permitido por venda é de 10 ítens!"
+
+Cenario: Limpar campos de escolha
+Dado que eu queira limpar os campos de escolha
+Quando eu clicar no botão Limpar
+Entao todos os campos devem voltar ao estado original
+
+
+
+
 
 
