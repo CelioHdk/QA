@@ -5,56 +5,20 @@ Como cliente da EBAC-SHOP
 Quero fazer concluir meu cadastro   
 Para finalizar minha compra
 
-
-Cenario: Detalhes do Faturamento
-
-Dado que eu preencha o campo Nome 
-Quando o campo nome for devidamente preenchido com o nome previamente cadastrado no login
-Então os demais campos obrigatorios tambem devem ser preenchidos
-
-Dado que eu preencha  o campo Sobrenome 
-Quando o campo sobrenome for devidamente preenchido com o sobrenome previamente cadastrado no login
-Então os demais campos obrigatorios tambem devem ser preenchidos
-
-Dado que eu preencha  o campo Nome da Empresa
-Quando o campo Nome da Empresa for  preenchido 
+Cenario: Faturamento Dados Opcionais
+Dado que eu esteja na tela de faturamento
+Quando o campos Opcionais forem preenchidos <Nome da Empresa>, <Nome da rua e numero da casa>, <Apartamento Suite Unidade etc>
 Então a exigencia de preenchimento pelos campos obrigatorios continua, já que este é opcional
 
-Dado que eu preencha  o campo Endereço
-Quando o campo Endereço for devidamente preenchido com o Endereço previamente cadastrado no login
-Então os demais campos obrigatorios tambem devem ser preenchidos
 
-Dado que eu preencha  o campo Complementos do Endereço
-Quando o campo Complementos do endereço for  preenchido 
-Então a exigencia de preenchimento pelos campos obrigatorios continua, já que este é opcional
-
-Dado que eu preencha  o campo Cidade
-Quando o campo Cidade for devidamente preenchido com a Cidade  previamente cadastrada no login
-Então os demais campos obrigatorios tambem devem ser preenchidos
-
-Dado que eu preencha  o campo País
-Quando o campo País for  preenchido 
-Então a exigencia de preenchimento pelos campos obrigatorios continua, já que este é opcional
-
-Dado que eu preencha  o campo  CEP
-Quando o campo CEP for devidamente preenchido com o CEP previamente cadastrado no login
-Então os demais campos obrigatorios tambem devem ser preenchidos
-
-
-Dado que eu preencha  o campo Telefone
-Quando o campo Telefone for devidamente preenchido com o Telefone previamente cadastrado no login
-Então os demais campos obrigatorios tambem devem ser preenchidos
-
-
-Dado que eu preencha  o campo Endereço de email
-Quando preencher o campo e-mail com formato inválido
-Então o Sistema deve exibir uma mensagem de erro "E-mail inválido, favor digitar corretamente"
-Quando o campo Endereço de email for devidamente preenchido com o Endereço de email previamente cadastrado no login
-Então os demais campos obrigatorios tambem devem ser preenchidos
-
-
-Quando tentar cadastrar com campos vazios
-Então o Sistema deve exibir uma mensagem de alerta "Cadastro inválido, favor preencher os campos corretamente" 
-
-Dado que eu preencha  todos os campos obrigatorios
+Esquema do Cenario: Faturamento Dados Obrigatorios
+Dado que eu esteja na tela de faturamento
+Quando os campos obrigatorios, marcados com asteriscos forem devidamente preenchidos <Nome>, <Sobrenome>, <Pais>, <Endereco>, <Cidade>, <CEP>, <Telefone>, <Endereco de e-mail>
 Então é possível finalizar a compra
+
+Exemplos:
+            | Nome*             | Sobrenome*    | Pais*      | Endereco*          | Cidade*      | CEP*       |Telefone*       | Endereço de e-mail*  |Mensagem                          |
+            |"Luis"             | "Souza"       | "Brasil"   | "Rua Folhas Verdes"| "São Paulo"  |"05465-201" |"11 95368-5547" | "luiss@gmail.com"    |"Cadastrado com sucesso      "    |
+            |"Marilia"          | "Alencar"     | "Brasil"   | "Rua Aristides"    | "Bertioga "  |"07732-101" |"13 95547-9884" | "mariliauol.com.br"  |"E-mail inválido"                 |
+            |"Vitória"          | "Fernandez"   | "Brasil"   | "Av. 14 de Outubro"| "Niterói"    |"08465-201" |                |                      |"Preencher campos obrigatórios(*)"|
+           
