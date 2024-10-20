@@ -24,7 +24,8 @@
             E a senha "celio123hdhsgaga"
             Entao exibir a mensagem de alerta "Usuário ou senha inválidos"
 
-            Esquema do Cenário: Autenticar multiplos usuários
+            Esquema do Cenario: Autenticar multiplos usuários
+            Dado que eu acesse a pagina de autenticacao da loja Ebac SHOP
             Quando eu digitar o <usuario>
             E a <senha>
             Entao deve exibir a <mensagem> de sucesso
